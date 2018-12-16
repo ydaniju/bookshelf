@@ -185,5 +185,8 @@ DEPENDENCIES
   rspec
   shotgun
 
+RUBY VERSION
+   ruby 2.4.4p296
+
 BUNDLED WITH
-   1.16.4
+   1.17.2
