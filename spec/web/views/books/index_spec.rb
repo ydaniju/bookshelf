@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Web::Views::Books::Index, type: :view do
   let(:exposures) { Hash[format: :html, books: []] }
   let(:template)  { Hanami::View::Template.new('apps/web/templates/books/index.html.erb') }
@@ -7,7 +9,7 @@ RSpec.describe Web::Views::Books::Index, type: :view do
   it 'exposes #format' do
     expect(view.format).to eq exposures.fetch(:format)
   end
-  
+
   it 'exposes #books' do
     expect(view.books).to eq exposures.fetch(:books)
   end

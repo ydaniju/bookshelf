@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Web::Views::Books::Create, type: :view do
   let(:exposures) { Hash[format: :html] }
   let(:template)  { Hanami::View::Template.new('apps/web/templates/books/create.html.erb') }

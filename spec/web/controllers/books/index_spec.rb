@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Web::Controllers::Books::Index, type: :action do
   let(:action) { described_class.new }
   let(:params) { Hash[] }
@@ -14,7 +16,7 @@ RSpec.describe Web::Controllers::Books::Index, type: :action do
     expect(response[0]).to eq 200
   end
 
-   it 'exposes all books' do
+  it 'exposes all books' do
     action.call(params)
     expect(action.exposures[:books]).to eq([@book])
   end
