@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
 RSpec.describe Web::Views::Books::New, type: :view do
   let(:params) do
-      OpenStruct.new(valid?: false, error_messages: error_messages: [
-      'Title must be filled', 'Author must be filled'
-    ])
+    OpenStruct.new(
+      valid?: false, error_messages: [
+        'Title must be filled', 'Author must be filled'
+      ]
+    )
   end
   let(:exposures) { Hash[format: :html, params: params] }
   let(:template)  { Hanami::View::Template.new('apps/web/templates/books/new.html.erb') }
