@@ -5,6 +5,7 @@
     <h2><%= book.title %></h2>
     <p><%= book.author %></p>
   </div>
+  <%= link_to 'Edit', routes.edit_book_path(book.id) %>
 </div>
 
 <br/>
