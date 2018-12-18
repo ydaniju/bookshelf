@@ -2,20 +2,20 @@
 
 require 'features_helper'
 
-RSpec.describe 'List books' do
+RSpec.describe 'View a books' do
   let(:repository) { BookRepository.new }
   before do
     repository.clear
 
     repository.create(title: 'PoEAA', author: 'Martin Fowler')
-    repository.create(title: 'TDD',   author: 'Kent Beck')
   end
+  let(:book) { repository.first }
 
   it 'displays each book on the page' do
-    visit '/books'
+    visit "/books/#{book.id}"
 
-    within '#books' do
-      expect(page).to have_selector('.book', count: 2), 'Expected to find 2 books'
+    within "#book#{book.id}" do
+      expect(page).to have_content('PoEAA')
     end
   end
 end
