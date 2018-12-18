@@ -11,6 +11,7 @@
       <tr class="book">
         <td><%= book.title %></td>
         <td><%= book.author %></td>
+        <td><%= link_to 'View', routes.book_path(id: book.id) %></td>
       </tr>
     <% end %>
   </table>
