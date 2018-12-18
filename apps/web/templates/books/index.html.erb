@@ -1,14 +1,19 @@
 <h2>All books</h2>
 
 <% if books.any? %>
-  <div id="books">
+  <table id="books" style="width:80%; margin: 0 auto; text-align:left">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>#</th>
+    </tr>
     <% books.each do |book| %>
-      <div class="book">
-        <h2><%= book.title %></h2>
-        <p><%= book.author %></p>
-      </div>
+      <tr class="book">
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+      </tr>
     <% end %>
-  </div>
+  </table>
 <% else %>
   <p class="placeholder">There are no books yet.</p>
 <% end %>
