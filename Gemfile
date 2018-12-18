@@ -19,6 +19,7 @@ end
 
 group :test, :development do
   gem 'dotenv', '~> 2.4'
+  gem 'pry'
 end
 
 group :test do
