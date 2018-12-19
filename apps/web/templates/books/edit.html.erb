@@ -15,12 +15,12 @@
   form_for :book, routes.book_path(book.id) do
     div class: 'input' do
       label :title
-      text_field :title
+      text_field :title, value: book.title
     end
 
     div class: 'input' do
       label :author
-      text_field :author
+      text_field :author, value: book.author
     end
 
     div class: 'controls' do
