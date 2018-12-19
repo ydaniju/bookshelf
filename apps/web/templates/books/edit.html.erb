@@ -12,7 +12,7 @@
   </ul>
 <% end %>
 <%=
-  form_for :book, routes.book_path(book.id) do
+  form_for book, routes.book_path(book.id), method: :put do
     div class: 'input' do
       label :title
       text_field :title, value: book.title

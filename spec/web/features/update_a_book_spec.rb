@@ -14,11 +14,9 @@ RSpec.describe 'Update a book' do
     visit "/books/#{book.id}"
     click_link 'Edit'
     fill_in 'Author', with: 'JRR Martin'
-    expect(current_path).to eq("/books/#{book.id}/edit")
-    # click_button 'Save'
+    click_button 'Save'
 
-    # expect(current_path).to eq("/books/#{book.id}")
-
+    expect(current_path).to eq("/books/#{book.id}")
     # expect(page).to have_content('JRR Martin')
   end
 end

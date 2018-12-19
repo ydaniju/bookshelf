@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# spec/web/controllers/books/create_spec.rb
-
 RSpec.describe Web::Controllers::Books::Create do
   let(:action) { described_class.new }
   let(:repository) { BookRepository.new }
