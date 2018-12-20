@@ -7,11 +7,12 @@ module Web
         expose :book
 
         def call(params)
+          # binding.pry
           repository = BookRepository.new
-          @book = repository.find(params.dig(:book, :id))
-          repository.update(@book.id, params[:book])
+          # @book = repository.find(params.dig(:book, :id))
+          repository.update(params.dig(:book, :id), params[:book])
 
-          redirect_to routes.book_path(id: @book.id)
+          redirect_to routes.book_path(id: params.dig(:book, :id))
         end
       end
     end

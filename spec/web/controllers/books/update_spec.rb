@@ -17,7 +17,7 @@ RSpec.describe Web::Controllers::Books::Update do
       action.call(params)
 
       expect(book.id).to_not be_nil
-      expect(book.title).to eq(params.dig(:book, :title))
+      expect(book.author).to eq(params.dig(:book, :author))
     end
 
     it 'redirects the user to the books listing' do
