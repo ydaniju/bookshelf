@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Web::Controllers::Books::Update do
+RSpec.describe Web::Controllers::Books::Update, type: :action do
   let(:action) { described_class.new }
   let(:repository) { BookRepository.new }
 
@@ -10,7 +10,7 @@ RSpec.describe Web::Controllers::Books::Update do
   end
 
   context 'with valid params' do
-    let(:params) { Hash[book: { author: 'Logan', title: 'Confident Ruby' }, id: @book.id] }
+    let(:params) { Hash[book: { **@book, author: 'Logan' }, id: @book.id] }
 
     it 'update author of book' do
       action.call(params)
