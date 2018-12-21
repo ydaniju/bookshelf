@@ -16,15 +16,29 @@ module Web
         expose :book
 
         def call(params)
-          repository = BookRepository.new
-          @book = repository.find(params[:id])
           if params.valid?
-            repository.update(params[:id], params[:book])
-
-            redirect_to routes.book_path(id: params[:id])
+            update_and_redirect(params)
           else
-            self.status = 422
+            render_edit_with_errors(params)
           end
+        end
+
+        private
+
+        def update_and_redirect(params)
+          repository.update(params[:id], params[:book])
+
+          redirect_to routes.book_path(id: params[:id])
+        end
+
+        def render_edit_with_errors(params)
+          @book = repository.find(params[:id])
+
+          self.status = 422
+        end
+
+        def repository
+          @repository ||= BookRepository.new
         end
       end
     end

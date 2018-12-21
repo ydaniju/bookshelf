@@ -9,7 +9,9 @@ RSpec.describe Web::Views::Books::New, type: :view do
     )
   end
   let(:exposures) { Hash[format: :html, params: params] }
-  let(:template)  { Hanami::View::Template.new('apps/web/templates/books/new.html.erb') }
+  let(:template) do
+    Hanami::View::Template.new('apps/web/templates/books/new.html.erb')
+  end
   let(:view)      { described_class.new(template, exposures) }
   let(:rendered)  { view.render }
 
