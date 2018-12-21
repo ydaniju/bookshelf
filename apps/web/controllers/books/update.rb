@@ -1,18 +1,23 @@
+# frozen_string_literal: true
+
 module Web
   module Controllers
     module Books
       class Update
         include Web::Action
 
-        expose :book
+        params do
+          required(:book).schema do
+            required(:title).filled(:str?)
+            required(:author).filled(:str?)
+          end
+        end
 
         def call(params)
-          # binding.pry
           repository = BookRepository.new
-          # @book = repository.find(params.dig(:book, :id))
-          repository.update(params.dig(:book, :id), params[:book])
+          repository.update(params[:id], params[:book])
 
-          redirect_to routes.book_path(id: params.dig(:book, :id))
+          redirect_to routes.book_path(id: params[:id])
         end
       end
     end
