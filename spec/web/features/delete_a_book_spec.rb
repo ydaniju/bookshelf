@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'features_helper'
 
 RSpec.describe 'Delete a book' do
@@ -11,7 +13,7 @@ RSpec.describe 'Delete a book' do
   it 'deletes a book' do
     visit '/books'
     within "#book-#{@book.id}" do
-      click_link 'Delete'
+      click_button 'Delete'
     end
 
     expect(page).not_to have_content('Akane No Mai')
