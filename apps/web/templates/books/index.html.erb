@@ -8,10 +8,17 @@
       <th>#</th>
     </tr>
     <% books.each do |book| %>
-      <tr class="book">
+      <tr id="book-<%= book.id %>" class="book">
         <td><%= book.title %></td>
         <td><%= book.author %></td>
-        <td><%= link_to 'View', routes.book_path(id: book.id) %></td>
+        <td>
+          <%= link_to 'View', routes.book_path(id: book.id) %>
+          <%= 
+            form_for :book, routes.book_path(id: book.id), method: :delete do
+              submit 'Delete'
+            end
+          %>
+        </td>
       </tr>
     <% end %>
   </table>
