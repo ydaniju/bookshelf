@@ -13,11 +13,18 @@ module Web
           end
         end
 
+        expose :book
+
         def call(params)
           repository = BookRepository.new
-          repository.update(params[:id], params[:book])
+          @book = repository.find(params[:id])
+          if params.valid?
+            repository.update(params[:id], params[:book])
 
-          redirect_to routes.book_path(id: params[:id])
+            redirect_to routes.book_path(id: params[:id])
+          else
+            self.status = 422
+          end
         end
       end
     end
