@@ -10,13 +10,13 @@ RSpec.describe Web::Controllers::Books::Update, type: :action do
   end
 
   context 'with valid params' do
-    let(:params) { Hash[book: { **@book, author: 'Logan' }, id: @book.id] }
+    let(:params) { Hash[id: @book.id, book: { **@book, author: 'Logan' } ] }
 
     it 'update author of book' do
       action.call(params)
+      result = repository.last
 
-      expect(@book.id).to_not be_nil
-      expect(@book.author).to eq(params.dig(:book, :author))
+      expect(result.author).to eq(params.dig(:book, :author))
     end
 
     it 'redirects the user to the books listing' do

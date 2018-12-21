@@ -7,6 +7,8 @@ module Web
         include Web::Action
 
         params do
+          required(:id).filled(:int?)
+
           required(:book).schema do
             required(:title).filled(:str?)
             required(:author).filled(:str?)
