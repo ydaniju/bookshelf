@@ -9,11 +9,20 @@ RSpec.describe Web::Controllers::Books::Destroy, type: :action do
     @book = repository.create(title: '1984', author: 'George Orwell')
   end
 
-  it 'deletes a book' do
-    params = Hash[id: @book.id]
-    action.call(params)
-    result = repository.last
+  context 'when successful' do
+    let(:params) { Hash[id: @book.id] }
 
-    expect(result).to be_nil
+    it 'deletes a book' do
+      action.call(params)
+      result = repository.last
+
+      expect(result).to be_nil
+    end
+
+    it 'redirects to books path' do
+      response = action.call(params)
+
+      expect(response[1]['Location']).to eq('/books')
+    end
   end
 end
