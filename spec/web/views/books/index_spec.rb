@@ -27,7 +27,8 @@ RSpec.describe Web::Views::Books::Index, type: :view do
     let(:repo) { BookRepository.new }
     let(:book1) { repo.create(title: 'Refactoring', author: 'Martin Fowler') }
     let(:book2) { repo.create(title: 'D D D', author: 'Eric Evans') }
-    let(:exposures) { Hash[books: [book1, book2]] }
+    let(:params) { Hash[] }
+    let(:exposures) { Hash[books: [book1, book2], params: params] }
 
     it 'lists them all' do
       expect(rendered.scan(/class="book"/).length).to eq(2)
