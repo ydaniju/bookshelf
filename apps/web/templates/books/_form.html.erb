@@ -1,0 +1,29 @@
+<% unless params.valid? %>
+  <div class="errors">
+    <h3>There was a problem with your submission</h3>
+  </div>
+
+  <ul>
+    <% params.error_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%=
+  form_for :book, path, method: method do
+    div class: 'input' do
+      label :title
+      text_field :title, value: respond_to?(:book) ? book.title : ''
+    end
+
+    div class: 'input' do
+      label :author
+      text_field :author, value: respond_to?(:book) ? book.author : ''
+    end
+
+    div class: 'controls' do
+      submit submit_message
+    end
+  end
+%>

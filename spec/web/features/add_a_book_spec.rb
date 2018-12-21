@@ -25,7 +25,7 @@ RSpec.describe 'Add a book' do
     visit '/books/new'
 
     within 'form#book-form' do
-      click_button 'Create'
+      click_button 'Create Book'
     end
 
     expect(current_path).to eq('/books')

@@ -6,6 +6,10 @@ module Web
       class Update
         include Web::View
         template 'books/edit'
+
+        def submit_message
+          'Save'
+        end
       end
     end
   end

@@ -6,6 +6,10 @@ module Web
       class Create
         include Web::View
         template 'books/new'
+
+        def submit_message
+          'Create Book'
+        end
       end
     end
   end

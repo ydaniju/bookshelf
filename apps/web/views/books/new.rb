@@ -5,6 +5,10 @@ module Web
     module Books
       class New
         include Web::View
+
+        def submit_message
+          'Create Book'
+        end
       end
     end
   end

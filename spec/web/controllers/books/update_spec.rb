@@ -10,7 +10,7 @@ RSpec.describe Web::Controllers::Books::Update, type: :action do
   end
 
   context 'with valid params' do
-    let(:params) { Hash[id: @book.id, book: { **@book, author: 'Logan' } ] }
+    let(:params) { Hash[id: @book.id, book: { **@book, author: 'Logan' }] }
 
     it 'update author of book' do
       action.call(params)
