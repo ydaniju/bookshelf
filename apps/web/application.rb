@@ -153,7 +153,7 @@ module Web
         # See: http://hanamirb.org/guides/assets/compressors
         #
         # In order to skip stylesheet compression comment the following line
-        stylesheet_compressor :sass
+        stylesheet_compressor :builtin
 
         # Specify sources for assets
         #
