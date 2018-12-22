@@ -3,3 +3,13 @@
   text-align: left;
   width: 80%;
 }
+
+.table td,
+.table th {
+  width: 33%;
+}
+
+.table .tools {
+  display: flex;
+  position: relative;
+}
