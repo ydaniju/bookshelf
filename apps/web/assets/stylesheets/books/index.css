@@ -1,3 +1,41 @@
-.book .book-shape {
+.book {
+  margin: 20px;
+}
 
+.book .book-shape {
+  align-items: center;
+  background: aquamarine;
+  border: 1px solid aquamarine;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  width: 200px;
+  z-index: 3;
+}
+
+.book .book-shape> ::after {
+  border: 1px solid aquamarine;
+  content: '';
+  height: 250px;
+  left: -5px;
+  padding: 20px;
+  position: absolute;
+  top: -5px;
+  width: 200px;
+  z-index: 2;
+}
+
+.book .book-shape > ::before {
+  border: 1px solid aquamarine;
+  content: '';
+  height: 250px;
+  left: -10px;
+  padding: 20px;
+  position: absolute;
+  top: -10px;
+  width: 200px;
+  z-index: 1;
 }

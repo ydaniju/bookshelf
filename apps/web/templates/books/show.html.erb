@@ -2,9 +2,12 @@
 
 <div id="book<%= book.id %>">
   <div class="book book#{boo.id}">
-    <div class="book-shape"></div>
-    <h2><%= book.title %></h2>
-    <p><%= book.author %></p>
+    <div class="book-shape">
+      <h2 class="title"><%= book.title %></h2>
+      <p>By</p>
+      <p><%= book.author %></p>
+    </div>
+    
   </div>
   <%= link_to 'Edit', routes.edit_book_path(book.id) %>
 </div>
