@@ -13,3 +13,7 @@
   display: flex;
   position: relative;
 }
+
+.table button {
+  margin-left: 2em;
+}
