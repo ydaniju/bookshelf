@@ -14,7 +14,7 @@ RSpec.describe 'View a books' do
   it 'displays each book on the page' do
     visit "/books/#{book.id}"
 
-    within "#book#{book.id}" do
+    within "#book-#{book.id}" do
       expect(page).to have_content('PoEAA')
     end
   end
