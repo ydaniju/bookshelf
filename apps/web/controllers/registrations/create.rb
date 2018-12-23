@@ -15,7 +15,8 @@ module Web
 
         def call(params)
           if params.valid?
-            UserRepository.new.create(params[:user])
+            user = UserRepository.new.create(params[:user])
+            session[:user_id] = user.id
 
             redirect_to routes.books_path
           else
