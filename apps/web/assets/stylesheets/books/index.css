@@ -12,11 +12,13 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  height: 250px;
+  height: 25vw;
   justify-content: center;
+  min-height: 250px;
+  min-width: 200px;
   padding: 20px;
   position: relative;
-  width: 200px;
+  width: 20vw;
   z-index: 4;
 }
 
