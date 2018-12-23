@@ -6,10 +6,21 @@ module Web
       class Create
         include Web::Action
 
-        def call(params)
-          UserRepository.new.create(params[:user])
+        params do
+          required(:user).schema do
+            required(:email).filled(:str?)
+            required(:password).filled(:str?)
+          end
+        end
 
-          redirect_to routes.books_path
+        def call(params)
+          if params.valid?
+            UserRepository.new.create(params[:user])
+
+            redirect_to routes.books_path
+          else
+            self.status = 422
+          end
         end
       end
     end
