@@ -6,7 +6,7 @@
 
 .book .book-shape {
   align-items: center;
-  background: aquamarine;
+  background: white; 
   border: 1px solid rgb(218, 221, 220);
   border-radius: 3px;
   cursor: pointer;
@@ -20,33 +20,40 @@
   z-index: 4;
 }
 
-.book .book-shape::after {
+.book .book-shape::before {
+  background: white;
   border: 1px solid rgb(218, 221, 220);
   border-radius: 3px;
   content: '';
   cursor: pointer;
   height: 250px;
-  left: 5px;
+  left: 2.5px;
   padding: 20px;
   position: absolute;
-  top: 5px;
+  top: 2.5px;
+  width: 200px;
+  z-index: 2;
+}
+
+.book .book-shape::after {
+  background: white;
+  border: 1px solid rgb(218, 221, 220);
+  border-radius: 3px;
+  content: '';
+  cursor: pointer;
+  height: 250px;
+  left: 7.5px;
+  padding: 20px;
+  position: absolute;
+  top: 7.5px;
   width: 200px;
   z-index: 3;
 }
 
-.book .book-shape::before {
-  background-color: rgb(218, 221, 220);
-  border: 1px solid rgb(218, 221, 220);
-  border-radius: 3px;
-  content: '';
-  cursor: pointer;
-  height: 250px;
-  left: 10px;
-  padding: 20px;
-  position: absolute;
-  top: 10px;
-  width: 200px;
-  z-index: 2;
+.book .book-shape .title,
+.book .book-shape p {
+  position: relative;
+  z-index: 10;
 }
 
 .book .book-shape:hover,
