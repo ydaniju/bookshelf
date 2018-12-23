@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 module Web
-  module Controllers
+  module Views
     module Registrations
       class New
-        include Web::Action
+        include Web::View
 
-        def call(params); end
+        def submit_message
+          'Register'
+        end
       end
     end
   end

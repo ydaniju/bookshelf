@@ -2,4 +2,4 @@
 
 root to: 'home#index'
 resources :books
-resources :registrations, only: [:new]
+resources :registrations, only: %i[new create]

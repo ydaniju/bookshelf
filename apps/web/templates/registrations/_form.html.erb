@@ -12,15 +12,15 @@
   <% end %>
 
   <%=
-    form_for :book, path, method: method, class: :form do
+    form_for :user, path, method: method, class: :form do
       div class: 'input-group' do
-        label :title
-        text_field :title, value: respond_to?(:book) ? book.title : ''
+        label :email
+        text_field :email, value: respond_to?(:user) ? user.email : ''
       end
 
       div class: 'input-group' do
-        label :author
-        text_field :author, value: respond_to?(:book) ? book.author : ''
+        label :password
+        text_field :password
       end
 
       div class: 'controls' do
