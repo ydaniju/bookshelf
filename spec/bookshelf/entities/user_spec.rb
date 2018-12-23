@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe User, type: :entity do
   it 'can be instantitated with attributes' do
     user = User.new(email: 'danijuyusuf@gmail.com', password: 'password')
