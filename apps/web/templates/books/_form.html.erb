@@ -13,12 +13,12 @@
 
   <%=
     form_for :book, path, method: method, class: :form do
-      div class: 'input' do
+      div class: 'input-group' do
         label :title
         text_field :title, value: respond_to?(:book) ? book.title : ''
       end
 
-      div class: 'input' do
+      div class: 'input-group' do
         label :author
         text_field :author, value: respond_to?(:book) ? book.author : ''
       end
