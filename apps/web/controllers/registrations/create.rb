@@ -8,8 +8,8 @@ module Web
 
         params do
           required(:user).schema do
-            required(:email).filled(:str?)
-            required(:password).filled(:str?)
+            required(:email) { filled? & str? & format?(/@/) }
+            required(:password) { filled? & str? & size?(8..50) }
           end
         end
 
