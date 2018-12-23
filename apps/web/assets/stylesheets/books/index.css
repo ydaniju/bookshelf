@@ -6,7 +6,7 @@
 
 .book .book-shape {
   align-items: center;
-  background: white; 
+  background: white;
   border: 1px solid rgb(218, 221, 220);
   border-radius: 3px;
   cursor: pointer;
@@ -24,14 +24,13 @@
   background: white;
   border: 1px solid rgb(218, 221, 220);
   border-radius: 3px;
+  bottom: -3px;
   content: '';
   cursor: pointer;
-  height: 250px;
   left: 2.5px;
-  padding: 20px;
   position: absolute;
-  top: 2.5px;
-  width: 200px;
+  right: -2.5px;
+  top: 3px;
   z-index: 2;
 }
 
@@ -39,19 +38,19 @@
   background: white;
   border: 1px solid rgb(218, 221, 220);
   border-radius: 3px;
+  bottom: -7.5px;
   content: '';
   cursor: pointer;
-  height: 250px;
   left: 7.5px;
-  padding: 20px;
   position: absolute;
+  right: -7.5px;
   top: 7.5px;
-  width: 200px;
   z-index: 3;
 }
 
 .book .book-shape .title,
 .book .book-shape p {
+  margin: 20px;
   position: relative;
   z-index: 10;
 }
