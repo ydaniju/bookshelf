@@ -9,6 +9,6 @@ RSpec.describe 'New user registers' do
     fill_in 'Password', with: 'password'
     click_button 'Register'
 
-    expect(page).to have_content('Dashboard')
+    expect(page).to have_content('All Books')
   end
 end
