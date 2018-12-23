@@ -1,9 +1,12 @@
-Lint/HandleExceptions:
+AllCops:
+  TargetRubyVersion: 2.4
   Exclude:
-    - 'Rakefile'
+    - Rakefile
+    - apps/web/application.rb
 
 Metrics/BlockLength:
-  Max: 40
+  Exclude:
+    - spec/**/*
 
 Style/Documentation:
   Enabled: false
