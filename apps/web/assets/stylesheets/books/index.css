@@ -54,8 +54,12 @@
 .book .book-shape p {
   left: 7.5px;
   margin: 20px;
+  max-height: 24%;
+  overflow: hidden;
   position: relative;
   text-align: center;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
   z-index: 10;
 }
 
