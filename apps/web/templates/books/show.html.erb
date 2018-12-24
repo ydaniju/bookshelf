@@ -2,7 +2,17 @@
 
 <%= render partial: 'book', locals: { book: book } %>
 
-<%= link_to 'Edit', routes.edit_book_path(book.id) %>
+<section class="tools" id="tools-<%= book.id %>">
+  <%= link_to 'Edit', routes.edit_book_path(book.id) %>
+
+  <br/>
+
+  <%= 
+    form_for :book, routes.book_path(id: book.id), method: :delete do
+      submit 'Delete'
+    end
+  %>
+</section>
 
 <br/>
 

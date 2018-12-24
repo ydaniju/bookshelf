@@ -11,8 +11,8 @@ RSpec.describe 'Delete a book' do
   end
 
   it 'deletes a book' do
-    visit '/books'
-    within "#book-wrapper-#{@book.id}" do
+    visit "/books/#{@book.id}"
+    within "#tools-#{@book.id}" do
       click_button 'Delete'
     end
 
