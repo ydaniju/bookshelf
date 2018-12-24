@@ -1,27 +1,21 @@
 <h2>All Books</h2>
 
 <% if books.any? %>
-  <table id="books" class="table table-stripped">
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Tools</th>
-    </tr>
+  <div id="books"class="books-gallery">
     <% books.each do |book| %>
-      <tr id="book-<%= book.id %>" class="book">
-        <td class="title"><%= book.title %></td>
-        <td class="author"><%= book.author %></td>
-        <td class="tools">
+      <div class="book-wrapper">
+        <%= render partial: 'book', locals: { book: book } %>
+        <section class="tools">
           <%= link_to 'View', routes.book_path(id: book.id) %>
           <%= 
             form_for :book, routes.book_path(id: book.id), method: :delete do
               submit 'Delete'
             end
           %>
-        </td>
-      </tr>
+        </section>
+      </div>
     <% end %>
-  </table>
+  </div>
 <% else %>
   <p class="placeholder">There are no books yet.</p>
 <% end %>

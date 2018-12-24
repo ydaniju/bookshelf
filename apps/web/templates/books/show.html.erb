@@ -1,15 +1,8 @@
 <h2>Book Details</h2>
 
-<div id="book-<%= book.id %>">
-  <div class="book book-<%= book.id %>">
-    <div class="book-shape">
-      <h2 class="title"><%= book.title %></h2>
-      <p>By</p>
-      <p><%= book.author %></p>
-    </div>
-  </div>
-  <%= link_to 'Edit', routes.edit_book_path(book.id) %>
-</div>
+<%= render partial: 'book', locals: { book: book } %>
+
+<%= link_to 'Edit', routes.edit_book_path(book.id) %>
 
 <br/>
 

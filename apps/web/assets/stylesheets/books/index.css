@@ -64,3 +64,21 @@
 .book .book-shape:hover::after {
   border: 1px solid rgb(180, 184, 182);
 }
+
+.books-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.book-wrapper .tools {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 20px;
+}
+
+.book-wrapper .tools a:hover,
+.book-wrapper .tools button:hover {
+  cursor: pointer;
+}
