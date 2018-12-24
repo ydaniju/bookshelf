@@ -1,38 +1,40 @@
 <h2>Book Details</h2>
 
 <div class="book-container">
-  <%= render partial: 'book', locals: { book: book } %>
+  <a
+    class="book-wrapper"
+    id="book-wrapper-<%= book.id %>"
+    href="<%= routes.edit_book_path(book.id) %>"
+  >
+    <%= render partial: 'book', locals: { book: book } %>
+  </a>
 
-  <div class="book-details">
-    <section class="detail">
-      <h3>Title</h3>
-      <p><%= book.title %></p>
+  <section class="book-sidebar">
+    <section class="tools" id="tools-<%= book.id %>">
+      <%= 
+        form_for :book, routes.book_path(id: book.id), method: :delete do
+          submit 'Delete'
+        end
+      %>
     </section>
 
-    <section class="detail">
-      <h3>Author</h3>
-      <p><%= book.author %></p>
-    </section>
+    <section class="book-details">
+      <section class="detail">
+        <h3>Title</h3>
+        <p><%= book.title %></p>
+      </section>
 
-    <section class="detail">
-      <h3>Description</h3>
-      <p><%= book.description %></p>
+      <section class="detail">
+        <h3>Author</h3>
+        <p><%= book.author %></p>
+      </section>
+
+      <section class="detail">
+        <h3>Description</h3>
+        <p><%= book.description %></p>
+      </section>
     </section>
-  </div>
+  </section>
 </div>
-
-<section class="tools" id="tools-<%= book.id %>">
-  <%= link_to 'Edit', routes.edit_book_path(book.id) %>
-
-  <br/>
-
-  <%= 
-    form_for :book, routes.book_path(id: book.id), method: :delete do
-      submit 'Delete'
-    end
-  %>
-</section>
-
-<br/>
 
 <p><%= link_to 'Return', routes.books_path %></p>
