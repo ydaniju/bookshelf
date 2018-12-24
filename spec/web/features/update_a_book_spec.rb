@@ -16,7 +16,7 @@ RSpec.describe 'Update a book' do
       description: 'bbfb'
     )
     visit "/books/#{book.id}"
-    click_link 'Edit'
+    find('.book-wrapper').click
     fill_in 'Author', with: 'JRR Martin'
     click_button 'Save'
 
