@@ -18,7 +18,7 @@ RSpec.describe Web::Views::Books::Index, type: :view do
 
   context 'when there are no books' do
     it 'renders placeholder message' do
-      placeholder = '<p class="placeholder">There are no books yet.</p>'
+      placeholder = '<p>There are no books yet.</p>'
       expect(rendered).to include(placeholder)
     end
   end
