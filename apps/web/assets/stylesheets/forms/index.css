@@ -26,12 +26,3 @@
   box-sizing: border-box;
 }
 
-.form .controls button {
-  background-color: green;
-  border: 2px solid green;
-  border-radius: 3px;
-  color: white;
-  cursor: pointer;
-  font-size: 1em;
-  padding: 0.5em 2em;
-}

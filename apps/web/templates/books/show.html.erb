@@ -22,12 +22,12 @@
         form_for :book,
                   routes.book_path(id: book.id),
                   method: :delete do
-          submit 'Delete', class: 'tool'
+          submit 'Delete', class: 'tool button button-danger'
         end
       %>
 
       <a>
-        <button class="tool">Download</button>
+        <button class="tool button button-default">Download</button>
       </a>
     </section>
 

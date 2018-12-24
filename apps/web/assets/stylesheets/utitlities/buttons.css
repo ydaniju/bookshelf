@@ -1,0 +1,34 @@
+.button {
+  border-radius: 5%;
+  color: white;
+  cursor: pointer;
+  font-size: 0.8em;
+  padding: 1em 1.6em;
+}
+
+.button.button-default {
+  color: black;
+}
+
+.button.button-primary {
+  background-color: blue;
+  border-color: blue;
+}
+
+.button.button-success {
+  background-color: green;
+  border-color: green;
+}
+
+.button.button-danger {
+  background-color: #E5228A;
+  border-color: #E5228A;
+}
+
+.button.button-submit {
+  background-color: green;
+  border: 2px solid green;
+  border-radius: 3px;
+  font-size: 1em;
+  padding: 0.5em 2em;
+}
