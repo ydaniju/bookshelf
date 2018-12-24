@@ -16,4 +16,8 @@
   <p class="placeholder">There are no books yet.</p>
 <% end %>
 
-<%= link_to 'Add Book', routes.new_book_path %>
+<section class="tools">
+  <a href="<%= routes.new_book_path %>">
+    <button class="tool">Add Book</button> 
+  </a>
+</section>

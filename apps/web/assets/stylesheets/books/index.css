@@ -108,11 +108,11 @@
   position: relative;
 }
 
-.book-sidebar .tools form {
+.tools form {
   width: min-content;
 }
 
-.book-sidebar .tools .tool {
+.tools .tool {
   background-color: white;
   border-radius: 5%;
   cursor: pointer;
