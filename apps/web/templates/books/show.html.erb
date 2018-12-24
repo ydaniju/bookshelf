@@ -1,5 +1,12 @@
 <h2>Book Details</h2>
 
+<div class="breadcrumbs">
+  <p>
+    <%= link_to 'All books', routes.books_path %> /
+    <%= book.title %>
+  </p>
+</div>
+
 <div class="book-container">
   <a
     class="book-wrapper"
