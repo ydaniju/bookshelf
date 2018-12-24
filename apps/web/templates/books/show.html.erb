@@ -18,10 +18,12 @@
           submit 'Delete', class: 'tool'
         end
       %>
+
+      <a>
+        <button class="tool">Download</button>
+      </a>
     </section>
 
     <%= render partial: 'details', locals: { book: book } %>
   </section>
 </div>
-
-<p><%= link_to "Return", routes.books_path %></p>

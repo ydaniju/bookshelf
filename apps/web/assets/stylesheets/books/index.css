@@ -108,6 +108,13 @@
   position: relative;
 }
 
+.book-container .book-sidebar .tools,
+.tools {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
 .tools form {
   width: min-content;
 }
