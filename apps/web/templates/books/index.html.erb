@@ -3,7 +3,7 @@
 <% if books.any? %>
   <div id="books"class="books-gallery">
     <% books.each do |book| %>
-      <div class="book-wrapper">
+      <div class="book-wrapper" id="book-wrapper-<%= book.id %>">
         <%= render partial: 'book', locals: { book: book } %>
         <section class="tools">
           <%= link_to 'View', routes.book_path(id: book.id) %>
