@@ -12,8 +12,10 @@
   <section class="book-sidebar">
     <section class="tools" id="tools-<%= book.id %>">
       <%= 
-        form_for :book, routes.book_path(id: book.id), method: :delete do
-          submit 'Delete'
+        form_for :book,
+                  routes.book_path(id: book.id),
+                  method: :delete do
+          submit 'Delete', class: 'tool'
         end
       %>
     </section>
