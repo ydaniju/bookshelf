@@ -12,7 +12,7 @@ module Web
           required(:book).schema do
             required(:title).filled(:str?)
             required(:author).filled(:str?)
-            required(:description).maybe(:str?)
+            optional(:description).maybe(:filled?, :str?)
           end
         end
 
