@@ -75,14 +75,7 @@
   justify-content: center;
 }
 
-.book-wrapper .tools {
-  align-items: center;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 0 20px;
-}
-
-.book-wrapper .tools a:hover,
-.book-wrapper .tools button:hover {
-  cursor: pointer;
+.book-wrapper {
+  text-decoration: none;
+  color: initial;
 }

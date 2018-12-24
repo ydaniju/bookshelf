@@ -3,17 +3,13 @@
 <% if books.any? %>
   <div id="books"class="books-gallery">
     <% books.each do |book| %>
-      <div class="book-wrapper" id="book-wrapper-<%= book.id %>">
+      <a
+        class="book-wrapper"
+        id="book-wrapper-<%= book.id %>"
+        href="<%= routes.book_path(book.id) %>"
+      >
         <%= render partial: 'book', locals: { book: book } %>
-        <section class="tools">
-          <%= link_to 'View', routes.book_path(id: book.id) %>
-          <%= 
-            form_for :book, routes.book_path(id: book.id), method: :delete do
-              submit 'Delete'
-            end
-          %>
-        </section>
-      </div>
+      </a>
     <% end %>
   </div>
 <% else %>
