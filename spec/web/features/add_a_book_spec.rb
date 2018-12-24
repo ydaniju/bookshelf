@@ -13,6 +13,7 @@ RSpec.describe 'Add a book' do
     within 'form#book-form' do
       fill_in 'Title',  with: 'New Yorker'
       fill_in 'Author', with: 'Some author'
+      fill_in 'Description', with: 'This book does not exist'
 
       click_button 'Create'
     end

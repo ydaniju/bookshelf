@@ -10,7 +10,11 @@ RSpec.describe 'Update a book' do
   end
 
   it 'updates a book' do
-    book = repository.create(title: 'Game of Thrones', author: 'GR Martin')
+    book = repository.create(
+      title: 'Game of Thrones',
+      author: 'GR Martin',
+      description: 'bbfb'
+    )
     visit "/books/#{book.id}"
     click_link 'Edit'
     fill_in 'Author', with: 'JRR Martin'

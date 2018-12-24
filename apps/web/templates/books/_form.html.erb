@@ -23,6 +23,11 @@
         text_field :author, value: respond_to?(:book) ? book.author : ''
       end
 
+       div class: 'input-group' do
+        label :description
+        text_field :description, value: respond_to?(:book) ? book.description : ''
+      end
+
       div class: 'controls' do
         submit submit_message
       end
