@@ -8,7 +8,7 @@ RSpec.describe Web::Views::Books::New, type: :view do
       ]
     )
   end
-  let(:exposures) { Hash[format: :html, params: params] }
+  let(:exposures) { Hash[format: :html, params: params, flash: {}] }
   let(:template) do
     Hanami::View::Template.new('apps/web/templates/books/new.html.erb')
   end
