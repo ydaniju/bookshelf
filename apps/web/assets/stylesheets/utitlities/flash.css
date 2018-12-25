@@ -1,0 +1,25 @@
+.flash {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  display: flex;
+  height: 40px;
+  padding: 0 20px;
+}
+
+.flash .flash-text {
+  margin: 0 auto;
+}
+
+.flash .dismiss {
+  cursor: pointer;
+  margin-left: 0 0 0 auto;
+}
+
+.flash.flash-error {
+  background-color: pink;
+}
+
+.flash.flash-success {
+  background-color: yellowgreen;
+}
