@@ -2,13 +2,13 @@
 
 RSpec.describe Web::Controllers::Books::Index, type: :action do
   let(:action) { described_class.new }
-  let(:params) { Hash[] }
+  let(:params) { Hash['rack.session' => { user_id: 1 }] }
   let(:repository) { BookRepository.new }
 
   before do
     repository.clear
 
-    @book = repository.create(title: 'TDD', author: 'Kent Beck')
+    @book = repository.create(title: 'TDD', author: 'Kent Beck', user_id: 1)
   end
 
   it 'is successful' do

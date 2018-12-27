@@ -10,7 +10,7 @@ RSpec.describe Web::Controllers::Books::Create, type: :action do
 
   context 'with valid params' do
     let(:params) do
-      Hash[book: { title: 'Confident Ruby', author: 'Avdi Grimm' }]
+      Hash[book: { title: 'Confident Ruby', author: 'Avdi Grimm', user_id: 1 }]
     end
 
     it 'creates a new book' do
