@@ -7,7 +7,12 @@ RSpec.describe Web::Views::Books::Edit, type: :view do
     )
   end
   let(:book) { BookRepository.new.create(title: 'Broomhilda', author: 'Otto') }
-  let(:exposures) { Hash[format: :html, params: params, book: book, flash: {}] }
+  let(:exposures) do
+    {
+      format: :html, params: params, book: book,
+      flash: {}, session: { 'rack.session' => { user_id: 1 } }
+    }
+  end
   let(:template) do
     Hanami::View::Template.new('apps/web/templates/books/edit.html.erb')
   end

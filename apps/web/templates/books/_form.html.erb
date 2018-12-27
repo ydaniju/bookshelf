@@ -13,6 +13,8 @@
 
   <%=
     form_for :book, path, method: method, class: :form do
+      hidden_field :user_id, value: session[:user_id]
+
       div class: 'input-group' do
         label :title
         text_field :title, value: respond_to?(:book) ? book.title : ''
