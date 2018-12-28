@@ -3,14 +3,15 @@
 require 'features_helper'
 
 RSpec.describe 'User logs out' do
-  let(:user) do
-    UserRepository.new.create(email: 'ydaniju@goa.fr', password: 'password')
-  end
+  let(:book_repo) { BookRepository.new }
+  let(:user_repo) { UserRepository.new }
+  let(:user) { user_repo.create(email: 'ydaniju@goa.fr', password: 'password') }
 
-  before { page.set_rack_session(user_id: user.id) }
+  before do
+    book_repo.clear
+    user_repo.clear
 
-  after do
-    BookRepository.new.clear
+    page.set_rack_session(user_id: user.id)
   end
 
   it 'logs user out' do

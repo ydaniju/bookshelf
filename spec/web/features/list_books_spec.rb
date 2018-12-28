@@ -3,17 +3,17 @@
 require 'features_helper'
 
 RSpec.describe 'List books' do
-  let(:repository) { BookRepository.new }
-  let(:user) do
-    UserRepository.new.create(email: 'ydaniju@goa.fr', password: 'password')
-  end
+  let(:book_repo) { BookRepository.new }
+  let(:user_repo) { UserRepository.new }
+  let(:user) { user_repo.create(email: 'ydaniju@goa.fr', password: 'password') }
 
   before do
-    repository.clear
+    user_repo.clear
+    book_repo.clear
 
     page.set_rack_session(user_id: user.id)
-    repository.create(title: 'PoEAA', author: 'Martin Fowler')
-    repository.create(title: 'TDD',   author: 'Kent Beck')
+    book_repo.create(title: 'PoEAA', author: 'Martin Fowler', user_id: user.id)
+    book_repo.create(title: 'TDD',   author: 'Kent Beck', user_id: user.id)
   end
 
   it 'displays each book on the page' do

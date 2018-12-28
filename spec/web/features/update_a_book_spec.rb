@@ -3,17 +3,21 @@
 require 'features_helper'
 
 RSpec.describe 'Update a book' do
-  let(:repository) { BookRepository.new }
+  let(:book_repo) { BookRepository.new }
+  let(:user_repo) { UserRepository.new }
+  let(:user) { user_repo.create(email: 'ea@ea.ea', password: 'password') }
 
   before do
-    repository.clear
+    book_repo.clear
+    user_repo.clear
   end
 
   it 'updates a book' do
-    book = repository.create(
+    book = book_repo.create(
       title: 'Game of Thrones',
       author: 'GR Martin',
-      description: 'bbfb'
+      description: 'bbfb',
+      user_id: user.id
     )
     visit "/books/#{book.id}"
     find('.book-wrapper').click

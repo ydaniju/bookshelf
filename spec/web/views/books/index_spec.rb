@@ -26,14 +26,27 @@ RSpec.describe Web::Views::Books::Index, type: :view do
   end
 
   context 'when there are books' do
-    let(:repo) { BookRepository.new }
-    let(:book1) { repo.create(title: 'Refactoring', author: 'Martin Fowler') }
-    let(:book2) { repo.create(title: 'D D D', author: 'Eric Evans') }
+    let(:book_repo) { BookRepository.new }
+    let(:user_repo) { UserRepository.new }
+    let(:user) { user_repo.create(email: 'ea@ea.ea', password: 'password') }
+    let(:book1) do
+      book_repo.create(
+        title: 'Refactoring', author: 'Martin Fowler', user_id: user.id
+      )
+    end
+    let(:book2) do
+      book_repo.create(title: 'D D D', author: 'Eric Evans', user_id: user.id)
+    end
     let(:exposures) do
       {
         books: [book1, book2], format: :html, params: {},
         flash: {}, session: {}
       }
+    end
+
+    before do
+      book_repo.clear
+      user_repo.clear
     end
 
     it 'lists them all' do

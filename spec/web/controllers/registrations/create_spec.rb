@@ -5,7 +5,12 @@ RSpec.describe Web::Controllers::Registrations::Create, type: :action do
 
   context 'with valid params' do
     let(:params) { Hash[user: { email: 'ab@ab.ab', password: 'password' }] }
+    let(:user_repo) { UserRepository.new }
     let(:user) { UserRepository.new.last }
+
+    before do
+      user_repo.clear
+    end
 
     it 'creates a user' do
       action.call(params)

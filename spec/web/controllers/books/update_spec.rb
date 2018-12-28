@@ -2,11 +2,16 @@
 
 RSpec.describe Web::Controllers::Books::Update, type: :action do
   let(:action) { described_class.new }
-  let(:repository) { BookRepository.new }
+  let(:book_repo) { BookRepository.new }
+  let(:user_repo) { UserRepository.new }
 
   before do
-    repository.clear
-    @book = repository.create(title: 'Confident Ruby', author: 'Avdi Grimm')
+    book_repo.clear
+    user_repo.clear
+    user = user_repo.create(email: 'ea@ea.ea', password: 'password')
+    @book = book_repo.create(
+      title: 'Confident Ruby', author: 'Avdi Grimm', user_id: user.id
+    )
   end
 
   context 'with valid params' do
@@ -14,7 +19,7 @@ RSpec.describe Web::Controllers::Books::Update, type: :action do
 
     it 'update author of book' do
       action.call(params)
-      result = repository.last
+      result = book_repo.last
 
       expect(result.author).to eq(params.dig(:book, :author))
     end

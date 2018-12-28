@@ -3,14 +3,15 @@
 require 'features_helper'
 
 RSpec.describe 'Add a book' do
-  let(:user) do
-    UserRepository.new.create(email: 'ydaniju@goa.fr', password: 'password')
-  end
+  let(:user_repo) { UserRepository.new }
+  let(:book_repo) { BookRepository.new }
+  let(:user) { user_repo.create(email: 'ydaniju@goa.fr', password: 'password') }
 
-  before { page.set_rack_session(user_id: user.id) }
+  before do
+    user_repo.clear
+    book_repo.clear
 
-  after do
-    BookRepository.new.clear
+    page.set_rack_session(user_id: user.id)
   end
 
   it 'can create a new book' do
