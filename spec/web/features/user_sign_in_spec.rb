@@ -11,7 +11,7 @@ RSpec.describe 'User signs in' do
   end
   it 'logs a user in' do
     visit '/authentication/new'
-    fill_in 'Email', with: 'nuser@email.com'
+    fill_in 'Email', with: 'user@email.com'
     fill_in 'Password', with: 'password'
     click_button 'Sign in'
 
