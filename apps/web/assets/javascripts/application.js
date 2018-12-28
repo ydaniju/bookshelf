@@ -11,7 +11,11 @@ document.addEventListener('DOMContentLoaded', (evt) => {
   }
 
   document.getElementById('buttonDrop').addEventListener('click', () => {
-    dropdown = document.getElementById('myDropdown');
+    const dropdown = document.getElementById('myDropdown');
     dropdown.classList.toggle('show');
+  });
+
+  document.getElementById('dismiss').addEventListener('click', () => {
+    document.getElementById('flash').remove();
   });
 });
