@@ -32,3 +32,11 @@
   font-size: 1em;
   padding: 0.5em 2em;
 }
+
+.button.button-round {
+  border-radius: 50%;
+  height: 42.59px;
+  margin-left: 24px;
+  padding: 0;
+  width: 42.59px;
+}
