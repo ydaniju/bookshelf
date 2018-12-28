@@ -6,11 +6,18 @@ RSpec.describe Web::Views::Books::Edit, type: :view do
       valid?: false, error_messages: ['Title must be filled']
     )
   end
-  let(:book) { BookRepository.new.create(title: 'Broomhilda', author: 'Otto') }
+  let(:user) do
+    UserRepository.new.create(email: 'em@em.am', password: 'password')
+  end
+  let(:book) do
+    BookRepository.new.create(
+      title: 'Broomhilda', author: 'Otto', user_id: user.id
+    )
+  end
   let(:exposures) do
     {
       format: :html, params: params, book: book,
-      flash: {}, session: { 'rack.session' => { user_id: 1 } }
+      flash: {}, session: { 'rack.session' => { user_id: user.id } }
     }
   end
   let(:template) do
@@ -18,6 +25,11 @@ RSpec.describe Web::Views::Books::Edit, type: :view do
   end
   let(:view)      { described_class.new(template, exposures) }
   let(:rendered)  { view.render }
+
+  before do
+    BookRepository.new.clear
+    UserRepository.new.clear
+  end
 
   it 'displays the value of fields already entered' do
     expect(rendered).to include('Otto')

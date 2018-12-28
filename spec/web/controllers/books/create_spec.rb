@@ -2,15 +2,20 @@
 
 RSpec.describe Web::Controllers::Books::Create, type: :action do
   let(:action) { described_class.new }
+  let(:user_repo) { UserRepository.new }
   let(:repository) { BookRepository.new }
+  let(:user) { user_repo.create(email: 'em@em.em', password: 'password') }
 
   before do
     repository.clear
+    user_repo.clear
   end
 
   context 'with valid params' do
     let(:params) do
-      Hash[book: { title: 'Confident Ruby', author: 'Avdi Grimm', user_id: 1 }]
+      { book: {
+        title: 'Confident Ruby', author: 'Avdi Grimm', user_id: user.id
+      } }
     end
 
     it 'creates a new book' do
