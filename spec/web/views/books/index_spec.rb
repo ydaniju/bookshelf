@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Web::Views::Books::Index, type: :view do
-  let(:exposures) { Hash[format: :html, books: [], flash: {}, params: {}] }
+  let(:exposures) { Hash[format: :html, books: [], flash: {}, params: {}, session: {}] }
   let(:template) do
     Hanami::View::Template.new('apps/web/templates/books/index.html.erb')
   end
@@ -28,7 +28,7 @@ RSpec.describe Web::Views::Books::Index, type: :view do
     let(:book1) { repo.create(title: 'Refactoring', author: 'Martin Fowler') }
     let(:book2) { repo.create(title: 'D D D', author: 'Eric Evans') }
     let(:exposures) do
-      Hash[books: [book1, book2], format: :html, params: {}, flash: {}]
+      Hash[books: [book1, book2], format: :html, params: {}, flash: {}, session: {}]
     end
 
     it 'lists them all' do

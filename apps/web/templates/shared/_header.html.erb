@@ -1,11 +1,19 @@
 <nav>
   <h1><%= link_to 'Bookshelf', routes.books_path %></h1>
   <section class="tools">
-    <a href="<%= routes.new_book_path %>">
-      <button class="tool button button-default">Add Book</button> 
-    </a>
+    <% if session[:user_id].nil? %>
+      <a href="<%= routes.new_authentication_path %>">
+        <button class="tool button button-default">Login</button> 
+      </a>
 
-    <% unless session[:user_id].nil? %>
+      <a href="<%= routes.new_registration_path %>">
+        <button class="tool button button-default">Signup</button> 
+      </a>
+    <% else %>
+      <a href="<%= routes.new_book_path %>">
+        <button class="tool button button-default">Add Book</button> 
+      </a>
+
       <div class="dropdown">
         <button
           class="tool button button-default button-round button-drop"

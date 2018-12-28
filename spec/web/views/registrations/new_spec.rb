@@ -8,7 +8,7 @@ RSpec.describe Web::Views::Registrations::New, type: :view do
       ]
     )
   end
-  let(:exposures) { Hash[format: :html, params: params, flash: {}] }
+  let(:exposures) { Hash[format: :html, params: params, flash: {}, session: {}] }
   let(:template) do
     Hanami::View::Template.new('apps/web/templates/registrations/new.html.erb')
   end
