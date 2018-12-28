@@ -13,7 +13,7 @@ RSpec.describe 'User logs out' do
     BookRepository.new.clear
   end
 
-  it 'can create a new book' do
+  it 'logs user out' do
     visit '/books'
 
     within '.dropdown' do
