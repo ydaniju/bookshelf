@@ -5,6 +5,7 @@ module Web
     module Registrations
       class Create
         include Web::Action
+        handle_exception ROM::SQL::UniqueConstraintError => 422
 
         params do
           required(:user).schema do
