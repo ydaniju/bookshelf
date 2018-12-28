@@ -14,7 +14,7 @@
   <% end %>
 
   <%=
-    form_for :authentication, routes.authentication_path, class: :form do
+    form_for :user, routes.authentication_path, class: :form do
       div class: 'input-group' do
         label :email
         text_field :email, value: respond_to?(:user) ? user.email : ''
