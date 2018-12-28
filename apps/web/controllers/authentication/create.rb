@@ -7,10 +7,10 @@ module Web
         include Web::Action
 
         def call(params)
-          user = UserRepository.new.users.with(
+          user = UserRepository.new.find_by(
             email: params[:authentication][:email],
             password: params[:authentication][:password]
-          ).first
+          )
 
           if user.nil?
             self.status = 422
