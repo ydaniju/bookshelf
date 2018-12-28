@@ -17,12 +17,14 @@
     form_for :user, routes.authentication_path, class: :form do
       div class: 'input-group' do
         label :email
-        text_field :email, value: respond_to?(:user) ? user.email : ''
+        text_field :email,
+                   'auto-complete' => 'email',
+                   value: respond_to?(:user) ? user.email : ''
       end
 
       div class: 'input-group' do
         label :password
-        password_field :password
+        password_field :password, 'auto-complete' => 'current-password'
       end
 
       div class: 'controls' do
