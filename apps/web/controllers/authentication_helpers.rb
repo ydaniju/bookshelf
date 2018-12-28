@@ -9,7 +9,7 @@ module Web
         return if signed_in?
 
         flash[:error] = 'Please sign in first'
-        redirect_to routes.new_registration_path
+        redirect_to routes.new_authentication_path
       end
 
       def signed_in?

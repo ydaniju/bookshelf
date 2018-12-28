@@ -5,24 +5,26 @@
       <button class="tool button button-default">Add Book</button> 
     </a>
 
-    <div class="dropdown">
-      <button
-        class="tool button button-default button-round button-drop"
-        id="buttonDrop"
-      >
-        AV
-      </button> 
-      <div id="myDropdown" class="dropdown-content">
-        <%= 
-          form_for :authentication,
-                    routes.authentication_path,
-                    method: :delete do
-            submit 'Logout', class: 'dropdown-item'
-          end
-        %>
-        <a class="dropdown-item" href="#">Link 2</a>
-        <a class="dropdown-item" href="#">Link 3</a>
+    <% unless session[:user_id].nil? %>
+      <div class="dropdown">
+        <button
+          class="tool button button-default button-round button-drop"
+          id="buttonDrop"
+        >
+          AV
+        </button> 
+        <div id="myDropdown" class="dropdown-content">
+          <%= 
+            form_for :authentication,
+                      routes.authentication_path,
+                      method: :delete do
+              submit 'Logout', class: 'dropdown-item'
+            end
+          %>
+          <a class="dropdown-item" href="#">Link 2</a>
+          <a class="dropdown-item" href="#">Link 3</a>
+        </div>
       </div>
-    </div>
+    <% end %>
   </section>
 </nav>

@@ -10,12 +10,19 @@ document.addEventListener('DOMContentLoaded', (evt) => {
     }
   }
 
-  document.getElementById('buttonDrop').addEventListener('click', () => {
-    const dropdown = document.getElementById('myDropdown');
-    dropdown.classList.toggle('show');
-  });
+  const buttonDrop = document.getElementById('buttonDrop');
+  const dismiss = document.getElementById('dismiss')
 
-  document.getElementById('dismiss').addEventListener('click', () => {
-    document.getElementById('flash').remove();
-  });
+  if (buttonDrop) {
+    document.getElementById('buttonDrop').onclick = () => {
+      const dropdown = document.getElementById('myDropdown');
+      dropdown.classList.toggle('show');
+    };
+  }
+
+  if (dismiss) {
+    dismiss.onclick = () => {
+      document.getElementById('flash').remove();
+    };
+  }
 });
