@@ -13,13 +13,10 @@ module Web
       end
 
       def signed_in?
-        !session[:user_id].nil? && !UserRepository.new
-                                                  .find(session[:user_id]).nil?
+        !session[:user_id].nil? && !current_user.nil?
       end
 
       def current_user
-        return unless signed_in?
-
         @current_user ||= UserRepository.new.find(session[:user_id])
       end
     end
