@@ -289,6 +289,7 @@ module Web
     configure :test do
       # Don't handle exceptions, render the stack trace
       handle_exceptions false
+      middleware.use RackSessionAccess::Middleware
     end
 
     ##
