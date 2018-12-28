@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 module Web
-  module Controllers
+  module Views
     module Authentication
       class New
-        include Web::Action
-
-        def call(params); end
+        include Web::View
       end
     end
   end
