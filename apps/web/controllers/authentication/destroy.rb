@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module Web
   module Controllers
     module Authentication
       class Destroy
         include Web::Action
 
-        def call(params)
+        def call(_params)
           session[:user_id] = nil
 
           flash[:success] = 'You have been logged out'
