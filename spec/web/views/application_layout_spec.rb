@@ -6,7 +6,10 @@ RSpec.describe Web::Views::ApplicationLayout, type: :view do
   let(:header_template) do
     Hanami::View::Template.new('apps/web/templates/shared/_header.html.erb')
   end
-  let(:partial) { Web::Views::Shared::Header.new(header_template) }
+  let(:partial_exposures) { Hash[params: {}] }
+  let(:partial) do
+    Web::Views::Shared::Header.new(header_template, partial_exposures)
+  end
   let(:exposures) { partial.render }
   let(:layout) do
     Web::Views::ApplicationLayout.new(partial, exposures)

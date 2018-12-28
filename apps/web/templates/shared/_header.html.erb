@@ -13,7 +13,13 @@
         AV
       </button> 
       <div id="myDropdown" class="dropdown-content">
-        <a class="dropdown-item" href="#">Logout</a>
+        <%= 
+          form_for :authentication,
+                    routes.authentication_path,
+                    method: :delete do
+            submit 'Logout', class: 'dropdown-item'
+          end
+        %>
         <a class="dropdown-item" href="#">Link 2</a>
         <a class="dropdown-item" href="#">Link 3</a>
       </div>

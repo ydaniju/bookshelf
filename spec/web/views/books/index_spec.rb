@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Web::Views::Books::Index, type: :view do
-  let(:exposures) { Hash[format: :html, books: [], flash: {}] }
+  let(:exposures) { Hash[format: :html, books: [], flash: {}, params: {}] }
   let(:template) do
     Hanami::View::Template.new('apps/web/templates/books/index.html.erb')
   end
