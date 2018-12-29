@@ -11,7 +11,7 @@ module Web
         expose :books
 
         def call(_params)
-          @books = BookRepository.new.all
+          @books = BookRepository.new.created_by(user: current_user)
         end
       end
     end
