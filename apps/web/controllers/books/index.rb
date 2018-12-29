@@ -7,7 +7,6 @@ module Web
         include Web::Action
         include Web::Controllers::AuthenticationHelpers
 
-        before :authenticate!
         expose :books
 
         def call(_params)

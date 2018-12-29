@@ -23,6 +23,10 @@ module Web
             redirect_to routes.books_path
           end
         end
+
+        private
+
+        def authenticate!; end
       end
     end
   end

@@ -24,6 +24,10 @@ module Web
             self.status = 422
           end
         end
+
+        private
+
+        def authenticate!; end
       end
     end
   end

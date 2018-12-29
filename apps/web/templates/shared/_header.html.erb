@@ -1,7 +1,7 @@
 <nav>
   <h1><%= link_to 'Bookshelf', routes.root_path %></h1>
   <section class="tools">
-    <% if session[:user_id].nil? %>
+    <% if current_user.nil? %>
       <a href="<%= routes.new_authentication_path %>">
         <button class="tool button button-default">Login</button> 
       </a>

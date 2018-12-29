@@ -2,6 +2,7 @@
 
 require 'hanami/helpers'
 require 'hanami/assets'
+require_relative './controllers/authentication_helpers'
 
 module Web
   class Application < Hanami::Application
@@ -261,8 +262,9 @@ module Web
       #
       # See: http://www.rubydoc.info/gems/hanami-controller#Configuration
       controller.prepare do
-        # include MyAuthentication # included in all the actions
-        # before :authenticate!    # run an authentication before callback
+        include Web::Controllers::AuthenticationHelpers
+        expose :current_user
+        before :authenticate!
       end
 
       # Configure the code that will yield each time Web::View is included
@@ -280,7 +282,7 @@ module Web
     #
     configure :development do
       # Don't handle exceptions, render the stack trace
-      handle_exceptions false
+      handle_exceptions true
     end
 
     ##
@@ -299,7 +301,7 @@ module Web
       # scheme 'https'
       # host   'example.org'
       # port   443
-
+      force_ssl true
       assets do
         # Don't compile static assets in production mode (eg. Sass, ES6)
         #
