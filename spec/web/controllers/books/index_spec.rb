@@ -22,6 +22,6 @@ RSpec.describe Web::Controllers::Books::Index, type: :action do
 
   it 'exposes all books' do
     action.call(params)
-    expect(action.exposures[:books]).to eq([@book])
+    expect(action.exposures[:books].collection).to eq([@book])
   end
 end

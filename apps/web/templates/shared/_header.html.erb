@@ -1,5 +1,5 @@
 <nav>
-  <h1><%= link_to 'Bookshelf', routes.books_path %></h1>
+  <h1><%= link_to 'Bookshelf', routes.root_path %></h1>
   <section class="tools">
     <% if session[:user_id].nil? %>
       <a href="<%= routes.new_authentication_path %>">
@@ -22,6 +22,8 @@
           AV
         </button> 
         <div id="myDropdown" class="dropdown-content">
+          <%= link_to 'My bookshelf', routes.books_path, class: "dropdown-item" %>
+          <a class="dropdown-item" href="#">Edit Profile</a>
           <%= 
             form_for :authentication,
                       routes.authentication_path,
@@ -29,8 +31,6 @@
               submit 'Logout', class: 'dropdown-item'
             end
           %>
-          <a class="dropdown-item" href="#">Link 2</a>
-          <a class="dropdown-item" href="#">Link 3</a>
         </div>
       </div>
     <% end %>
