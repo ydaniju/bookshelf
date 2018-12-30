@@ -13,6 +13,8 @@ RSpec.describe 'View a books' do
   before do
     book_repo.clear
     user_repo.clear
+
+    page.set_rack_session(user_id: user.id)
   end
 
   it 'displays each book on the page' do

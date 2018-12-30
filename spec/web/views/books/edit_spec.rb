@@ -3,7 +3,8 @@
 RSpec.describe Web::Views::Books::Edit, type: :view do
   let(:params) do
     OpenStruct.new(
-      valid?: false, error_messages: ['Title must be filled']
+      valid?: false, error_messages: ['Title must be filled'],
+      'rack.session' => { user_id: user.id }
     )
   end
   let(:user) do
@@ -17,7 +18,8 @@ RSpec.describe Web::Views::Books::Edit, type: :view do
   let(:exposures) do
     {
       format: :html, params: params, book: book,
-      flash: {}, session: { 'rack.session' => { user_id: user.id } }
+      flash: {}, session: { 'rack.session' => { user_id: user.id } },
+      current_user: user
     }
   end
   let(:template) do

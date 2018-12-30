@@ -13,9 +13,10 @@ RSpec.describe Web::Controllers::Books::Create, type: :action do
 
   context 'with valid params' do
     let(:params) do
-      { book: {
-        title: 'Confident Ruby', author: 'Avdi Grimm', user_id: user.id
-      } }
+      Hash[book: {
+        title: 'Confident Ruby', author: 'Avdi Grimm',
+        user_id: user.id
+      }, 'rack.session' => { user_id: user.id }]
     end
 
     it 'creates a new book' do
@@ -35,7 +36,7 @@ RSpec.describe Web::Controllers::Books::Create, type: :action do
   end
 
   context 'with invalid params' do
-    let(:params) { Hash[book: {}] }
+    let(:params) { Hash[book: {}, 'rack.session' => { user_id: user.id }] }
 
     it 'returns HTTP client error' do
       response = action.call(params)

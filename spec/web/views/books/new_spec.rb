@@ -8,10 +8,13 @@ RSpec.describe Web::Views::Books::New, type: :view do
       ]
     )
   end
+  let(:user_repo) { UserRepository.new }
+  let(:user) { user_repo.create(email: 'ea@ea.ea', password: 'password') }
   let(:exposures) do
     {
       format: :html, params: params, flash: {},
-      session: { 'rack.session' => { user_id: 1 } }
+      session: { 'rack.session' => { user_id: user.id } },
+      current_user: user
     }
   end
   let(:template) do

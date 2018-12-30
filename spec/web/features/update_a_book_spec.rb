@@ -10,6 +10,8 @@ RSpec.describe 'Update a book' do
   before do
     book_repo.clear
     user_repo.clear
+
+    page.set_rack_session(user_id: user.id)
   end
 
   it 'updates a book' do

@@ -40,7 +40,7 @@ RSpec.describe Web::Views::Books::Index, type: :view do
     let(:exposures) do
       {
         books: [book1, book2], format: :html, params: {},
-        flash: {}, session: {}
+        flash: {}, session: {}, current_user: user
       }
     end
 

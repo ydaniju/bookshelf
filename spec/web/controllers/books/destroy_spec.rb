@@ -16,7 +16,7 @@ RSpec.describe Web::Controllers::Books::Destroy, type: :action do
   end
 
   context 'when successful' do
-    let(:params) { Hash[id: @book.id] }
+    let(:params) { Hash[id: @book.id, 'rack.session' => { user_id: user.id }] }
 
     it 'deletes a book' do
       action.call(params)
