@@ -19,6 +19,14 @@ RSpec.describe Web::Views::Books::Index, type: :view do
   end
 
   context 'when there are no books' do
+    let(:user_repo) { UserRepository.new }
+    let(:user) { user_repo.create(email: 'ea@ea.ea', password: 'password') }
+    let(:exposures) do
+      {
+        books: [], format: :html, params: {}, flash: {}, session: {},
+        current_user: user
+      }
+    end
     it 'renders placeholder message' do
       placeholder = '<p>There are no books yet.</p>'
       expect(rendered).to include(placeholder)
@@ -39,8 +47,8 @@ RSpec.describe Web::Views::Books::Index, type: :view do
     end
     let(:exposures) do
       {
-        books: [book1, book2], format: :html, params: {},
-        flash: {}, session: {}, current_user: user
+        books: [book1, book2], format: :html, params: {}, flash: {},
+        session: {}, current_user: user
       }
     end
 

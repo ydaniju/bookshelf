@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-require 'database_cleaner'
-
-# Require this file for unit tests
 ENV['HANAMI_ENV'] ||= 'test'
 
+require 'database_cleaner'
 require_relative '../config/environment'
+
 Hanami.boot
 Hanami::Utils.require!("#{__dir__}/support")
 

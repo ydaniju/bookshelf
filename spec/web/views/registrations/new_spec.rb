@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe Web::Views::Registrations::New, type: :view do
+  let(:user_repo) { UserRepository.new }
+  let(:user) { user_repo.create(email: 'ea@ea.ea', password: 'password') }
   let(:params) do
     OpenStruct.new(
       valid?: false, error_messages: [
@@ -8,7 +10,11 @@ RSpec.describe Web::Views::Registrations::New, type: :view do
       ]
     )
   end
-  let(:exposures) { { format: :html, params: params, flash: {}, session: {} } }
+  let(:exposures) do
+    {
+      format: :html, params: params, flash: {}, session: {}, current_user: user
+    }
+  end
   let(:template) do
     Hanami::View::Template.new('apps/web/templates/registrations/new.html.erb')
   end
