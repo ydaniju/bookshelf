@@ -8,9 +8,6 @@ RSpec.describe 'Add a book' do
   let(:user) { user_repo.create(email: 'ydaniju@goa.fr', password: 'password') }
 
   before do
-    user_repo.clear
-    book_repo.clear
-
     page.set_rack_session(user_id: user.id)
   end
 

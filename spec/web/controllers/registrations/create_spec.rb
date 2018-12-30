@@ -8,10 +8,6 @@ RSpec.describe Web::Controllers::Registrations::Create, type: :action do
     let(:user_repo) { UserRepository.new }
     let(:user) { UserRepository.new.last }
 
-    before do
-      user_repo.clear
-    end
-
     it 'creates a user' do
       action.call(params)
 

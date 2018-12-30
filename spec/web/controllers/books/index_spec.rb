@@ -8,9 +8,6 @@ RSpec.describe Web::Controllers::Books::Index, type: :action do
   let(:params) { Hash['rack.session' => { user_id: user.id }] }
 
   before do
-    book_repo.clear
-    user_repo.clear
-
     @book = book_repo.create(title: 'TDD', author: 'Kent Beck',
                              user_id: user.id)
   end

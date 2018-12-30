@@ -24,6 +24,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'rack_session_access'
   gem 'rspec'
 end

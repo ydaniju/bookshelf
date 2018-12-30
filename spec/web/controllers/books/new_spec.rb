@@ -8,10 +8,6 @@ RSpec.describe Web::Controllers::Books::New, type: :action do
     Hash[current_user: user, 'rack.session' => { user_id: user.id }]
   end
 
-  before do
-    user_repo.clear
-  end
-
   it 'is successful' do
     response = action.call(params)
     expect(response[0]).to eq 200

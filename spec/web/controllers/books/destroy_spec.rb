@@ -7,9 +7,6 @@ RSpec.describe Web::Controllers::Books::Destroy, type: :action do
   let(:user) { user_repo.create(email: 'em@em.em', password: 'password') }
 
   before do
-    book_repo.clear
-    user_repo.clear
-
     @book = book_repo.create(
       title: '1984', author: 'George Orwell', user_id: user.id
     )

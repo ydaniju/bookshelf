@@ -28,11 +28,6 @@ RSpec.describe Web::Views::Books::Edit, type: :view do
   let(:view)      { described_class.new(template, exposures) }
   let(:rendered)  { view.render }
 
-  before do
-    BookRepository.new.clear
-    UserRepository.new.clear
-  end
-
   it 'displays the value of fields already entered' do
     expect(rendered).to include('Otto')
   end

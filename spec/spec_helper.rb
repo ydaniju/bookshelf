@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'database_cleaner'
+
 # Require this file for unit tests
 ENV['HANAMI_ENV'] ||= 'test'
 
@@ -14,6 +16,17 @@ RSpec.configure do |config|
 
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
+  end
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
   end
 
   config.default_formatter = 'doc'

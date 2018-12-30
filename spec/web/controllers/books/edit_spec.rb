@@ -6,8 +6,6 @@ RSpec.describe Web::Controllers::Books::Edit, type: :action do
   let(:user) { user_repo.create(email: 'ea@ea.ea', password: 'passsword') }
   let(:params) { Hash['rack.session' => { user_id: user.id }] }
 
-  before { user_repo.clear }
-
   it 'is successful' do
     response = action.call(params)
     expect(response[0]).to eq 200

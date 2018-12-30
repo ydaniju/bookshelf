@@ -7,9 +7,6 @@ RSpec.describe Web::Controllers::Books::Update, type: :action do
   let(:user) { user_repo.create(email: 'ea@ea.ea', password: 'password') }
 
   before do
-    book_repo.clear
-    user_repo.clear
-
     @book = book_repo.create(
       title: 'Confident Ruby', author: 'Avdi Grimm', user_id: user.id
     )

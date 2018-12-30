@@ -44,11 +44,6 @@ RSpec.describe Web::Views::Books::Index, type: :view do
       }
     end
 
-    before do
-      book_repo.clear
-      user_repo.clear
-    end
-
     it 'lists them all' do
       expect(rendered.scan(/class="book-wrapper"/).length).to eq(2)
       expect(rendered).to include('Refactoring')

@@ -8,9 +8,6 @@ RSpec.describe 'List books' do
   let(:user) { user_repo.create(email: 'ydaniju@goa.fr', password: 'password') }
 
   before do
-    user_repo.clear
-    book_repo.clear
-
     page.set_rack_session(user_id: user.id)
     book_repo.create(title: 'PoEAA', author: 'Martin Fowler', user_id: user.id)
     book_repo.create(title: 'TDD',   author: 'Kent Beck', user_id: user.id)

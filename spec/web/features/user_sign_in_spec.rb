@@ -4,9 +4,8 @@ require 'features_helper'
 
 RSpec.describe 'User signs in' do
   let(:repository) { UserRepository.new }
-  before do
-    repository.clear
 
+  before do
     repository.create(email: 'user@email.com', password: 'password')
   end
   it 'logs a user in' do
